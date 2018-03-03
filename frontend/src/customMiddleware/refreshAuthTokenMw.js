@@ -2,8 +2,9 @@
 import { logoutAction } from "../actions/auth/authActions";
 import jwtDecode from "jwt-decode";
 import { push } from "react-router-redux";
+import { backendUrl } from "../actions/backendUrl";
 
-let url = process.env.REACT_APP_DEV_URL || "http://127.0.0.1:8000";
+let url = process.env.REACT_APP_DEV_URL || backendUrl;
 
 function refreshAuthToken({ dispatch, getState }) {
   return next => action => {

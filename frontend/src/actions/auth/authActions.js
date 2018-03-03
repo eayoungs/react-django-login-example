@@ -1,7 +1,9 @@
 import * as types from "../../types/actionTypes";
 import { push } from "react-router-redux";
 
-let url = process.env.REACT_APP_DEV_URL || "http://127.0.0.1:8000";
+import { backendUrl } from "../backendUrl";
+
+let url = process.env.REACT_APP_DEV_URL || backendUrl;
 
 function authenticateAction(userData, dispatch) {
   localStorage.setItem("ecom_token", userData.token);

@@ -1,6 +1,7 @@
 import * as types from "../../types/actionTypes";
+import { backendUrl } from "../backendUrl";
 
-const url = process.env.REACT_APP_DEV_URL || "http://127.0.0.1:8000";
+let url = process.env.REACT_APP_DEV_URL || backendUrl;
 
 const isChangingPassword = () => ({ type: types.IS_CHANGING_PASSWORD });
 const changePasswordSuccess = () => ({
