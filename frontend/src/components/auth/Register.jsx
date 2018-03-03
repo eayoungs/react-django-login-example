@@ -143,7 +143,12 @@ const EnhancedForm = withFormik({
       .registerAction({ username, email, password: password1 })
       .then(resp => {
         console.log("response ....", resp);
-        if (resp.non_field_errors) {
+        if (
+          resp.non_field_errors ||
+          Array.isArray(resp.username) ||
+          Array.isArray(resp.email) ||
+          Array.isArray(resp.password)
+        ) {
           setErrors(resp);
         } else {
           props.dispatch(props.registrationSuccessMessage());

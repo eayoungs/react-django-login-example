@@ -69,15 +69,6 @@ class Navigation extends Component {
                 Change Password
               </NavLink>
             </DropdownItem>
-            <DropdownItem className="inverse-dropdown">
-              <NavLink
-                tag={Link}
-                to="/profile"
-                onClick={this.toggleNavbarOnClick}
-              >
-                Profile
-              </NavLink>
-            </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
       ];
@@ -142,17 +133,6 @@ class Navigation extends Component {
                   onClick={this.toggleNavbarOnClick}
                 >
                   Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  tag={Link}
-                  to="/testing"
-                  activeClassName="active"
-                  onClick={this.toggleNavbarOnClick}
-                  exact
-                >
-                  Testing
                 </NavLink>
               </NavItem>
               {this.userIsNotAuthenticated()}
