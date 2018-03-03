@@ -8,7 +8,6 @@ SECRET_KEY = '$5pan&)k_caa*a=y_i&4zoz)9gzyl4h=-9g%3mc+g6-au*g&ak'
 INSTALLED_APPS = [
     # Personal,
     'custom_user',
-    'dog',
 
     #BASE
     'django.contrib.admin',
