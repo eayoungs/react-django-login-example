@@ -10,3 +10,9 @@
 * [x] Screen size responsive components & Navbar
 
 
+### How to use:
+
+1. Clone the repo
+2. cd frontend && npm install
+3. cd backend, createa a virtualenv, activate it and install -r requirements/local.txt
+4. 
