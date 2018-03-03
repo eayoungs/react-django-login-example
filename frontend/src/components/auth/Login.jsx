@@ -79,10 +79,6 @@ class InnerLoginForm extends Component {
           Register
         </Link>
         <br />
-        <span>Forgot your Password?</span>{" "}
-        <Link to="/reset" className={classes.links}>
-          Reset Password
-        </Link>
       </div>
     );
   }

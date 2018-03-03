@@ -3,7 +3,7 @@ import { logoutAction } from "../actions/auth/authActions";
 import jwtDecode from "jwt-decode";
 import { push } from "react-router-redux";
 
-let url = process.env.REACT_APP_DEV_URL;
+let url = process.env.REACT_APP_DEV_URL || "http://127.0.0.1:8000";
 
 function refreshAuthToken({ dispatch, getState }) {
   return next => action => {
@@ -13,7 +13,7 @@ function refreshAuthToken({ dispatch, getState }) {
           .exp;
         const currentTime = Math.round(new Date().getTime() / 1000);
         const timeLeft = tokenExpiration - currentTime;
-        console.log("TIME LEFT ->>>>>>>>", timeLeft);
+        console.log("time left till expiration --->", timeLeft);
         const loginToken = localStorage.getItem("ecom_token");
         if (tokenExpiration && timeLeft <= 0) {
           dispatch(push("/"));

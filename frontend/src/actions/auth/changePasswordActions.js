@@ -1,6 +1,6 @@
 import * as types from "../../types/actionTypes";
 
-const url = process.env.REACT_APP_DEV_URL;
+const url = process.env.REACT_APP_DEV_URL || "http://127.0.0.1:8000";
 
 const isChangingPassword = () => ({ type: types.IS_CHANGING_PASSWORD });
 const changePasswordSuccess = () => ({
@@ -23,7 +23,6 @@ function changePassword(pwDetails) {
         },
         body: JSON.stringify(pwDetails)
       });
-      console.log("CHANGE PASSWORD RESPONSE", response);
       if (!response.ok) {
         throw new Error("Invalid credentials, please try again.");
       }

@@ -7,10 +7,7 @@ import { ConnectedRouter } from "react-router-redux";
 import { history } from "./store";
 
 import { store } from "./store";
-import {
-  PrivateRoute,
-  AuthenticatedRoute
-} from "./customRoutes/ProtectedRoutes";
+import { AuthenticatedRoute } from "./customRoutes/ProtectedRoutes";
 
 import Navigation from "./containers/NavigationContainer";
 import HomePage from "./containers/HomePageContainer";
