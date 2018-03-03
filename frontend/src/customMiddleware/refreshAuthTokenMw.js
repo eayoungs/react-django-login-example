@@ -11,7 +11,6 @@ function refreshAuthToken({ dispatch, getState }) {
       if (localStorage.getItem("ecom_token") && localStorage.length > 0) {
         const tokenExpiration = jwtDecode(localStorage.getItem("ecom_token"))
           .exp;
-        console.log("tokenExpiration EXPIRATION OF TOKEN", tokenExpiration);
         const currentTime = Math.round(new Date().getTime() / 1000);
         const timeLeft = tokenExpiration - currentTime;
         console.log("TIME LEFT ->>>>>>>>", timeLeft);

@@ -77,7 +77,6 @@ TEMPLATES = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -104,6 +103,11 @@ AUTH_USER_MODEL = 'custom_user.User'
 #JWT settings for authentication
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
+    'JWT_ALLOW_REFRESH': True,
+}
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=1),
     'JWT_ALLOW_REFRESH': True,
 }
 

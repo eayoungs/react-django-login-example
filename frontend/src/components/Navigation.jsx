@@ -144,29 +144,6 @@ class Navigation extends Component {
                   Home
                 </NavLink>
               </NavItem>
-
-              <NavItem>
-                <NavLink
-                  tag={Link}
-                  to="/about"
-                  activeClassName="active"
-                  exact
-                  onClick={this.toggleNavbarOnClick}
-                >
-                  About
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  tag={Link}
-                  to="/contact"
-                  activeClassName="active"
-                  onClick={this.toggleNavbarOnClick}
-                  exact
-                >
-                  Contact
-                </NavLink>
-              </NavItem>
               <NavItem>
                 <NavLink
                   tag={Link}
@@ -176,17 +153,6 @@ class Navigation extends Component {
                   exact
                 >
                   Testing
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  tag={Link}
-                  to="/browse"
-                  activeClassName="active"
-                  exact
-                  onClick={this.toggleNavbarOnClick}
-                >
-                  Browse
                 </NavLink>
               </NavItem>
               {this.userIsNotAuthenticated()}
