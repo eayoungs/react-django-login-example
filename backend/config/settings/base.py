@@ -105,11 +105,6 @@ JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True,
 }
 
-JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=1),
-    'JWT_ALLOW_REFRESH': True,
-}
-
 # Swagger settings for documentation
 SWAGGER_SETTINGS = {
     'LOGIN_URL': 'rest_framework:login',
