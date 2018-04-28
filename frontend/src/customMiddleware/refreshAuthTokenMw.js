@@ -18,7 +18,9 @@ function refreshAuthToken({ dispatch, getState }) {
         const loginToken = localStorage.getItem("ecom_token");
         if (tokenExpiration && timeLeft <= 0) {
           dispatch(push("/"));
-          return dispatch(logoutAction());
+          localStorage.removeItem("ecom_token");
+          dispatch(logoutAction());
+          return next(action);
         }
         if (tokenExpiration && timeLeft <= 1800) {
           return fetch(`${url}/auth/jwt/refresh/`, {
