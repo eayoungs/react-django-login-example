@@ -2,9 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
-import { Route, Switch, Redirect } from "react-router-dom";
-import { ConnectedRouter } from "react-router-redux";
-import { history } from "./store";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
+import createHistory from "history/createBrowserHistory";
 
 import { store } from "./store";
 import { AuthenticatedRoute } from "./customRoutes/ProtectedRoutes";
@@ -15,9 +14,11 @@ import Login from "./containers/auth/LoginContainer";
 import Register from "./containers/auth/RegisterContainer";
 import ChangePassword from "./containers/auth/ChangePasswordContainer";
 
+export const history = createHistory();
+
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
+    <Router history={history}>
       <div>
         <Navigation />
         <Switch>
@@ -28,7 +29,7 @@ ReactDOM.render(
           <Route exact path="/changepassword" component={ChangePassword} />
         </Switch>
       </div>
-    </ConnectedRouter>
+    </Router>
   </Provider>,
   document.getElementById("root")
 );

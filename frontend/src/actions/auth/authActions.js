@@ -1,16 +1,21 @@
 import * as types from "../../types/actionTypes";
-import { push } from "react-router-redux";
 
 import { backendUrl } from "../backendUrl";
 
 let url = process.env.REACT_APP_DEV_URL || backendUrl;
 
-function authenticateAction(userData, dispatch) {
-  localStorage.setItem("ecom_token", userData.token);
-  dispatch(push("/"));
-  return dispatch({ type: types.AUTHENTICATED });
-}
+function authenticateAction(userData, dispatch, location, push) {
+  return async function() {
+    if (navigator.cookieEnabled) {
+      localStorage.setItem("ecom_token", userData.token);
+    }
 
+    if (location === "/login") {
+      push("/");
+    }
+    return dispatch({ type: types.AUTHENTICATED });
+  };
+}
 function registrationSuccessMessage() {
   return { type: types.REGISTRATION_SUCCESS_MESSAGE };
 }

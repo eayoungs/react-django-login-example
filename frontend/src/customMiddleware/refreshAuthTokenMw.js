@@ -1,8 +1,9 @@
 // Imports for email login
 import { logoutAction } from "../actions/auth/authActions";
 import jwtDecode from "jwt-decode";
-import { push } from "react-router-redux";
 import { backendUrl } from "../actions/backendUrl";
+
+import { history } from "../index.js";
 
 let url = process.env.REACT_APP_DEV_URL || backendUrl;
 
@@ -17,7 +18,7 @@ function refreshAuthToken({ dispatch, getState }) {
         console.log("time left till expiration --->", timeLeft);
         const loginToken = localStorage.getItem("ecom_token");
         if (tokenExpiration && timeLeft <= 0) {
-          dispatch(push("/"));
+          history.push("/");
           localStorage.removeItem("ecom_token");
           dispatch(logoutAction());
           return next(action);

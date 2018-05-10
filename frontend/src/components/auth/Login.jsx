@@ -103,7 +103,12 @@ const EnhancedForm = withFormik({
       if (response.non_field_errors) {
         setErrors({ password: response.non_field_errors[0] });
       } else {
-        props.authenticateAction(response, props.dispatch);
+        props.authenticateAction(
+          response,
+          props.dispatch,
+          props.location.pathname,
+          props.history.push
+        );
       }
     });
     setSubmitting(false);

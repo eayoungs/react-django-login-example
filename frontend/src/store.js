@@ -1,25 +1,29 @@
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import logger from "redux-logger";
-import createHistory from "history/createBrowserHistory";
-import { routerMiddleware } from "react-router-redux";
 
 import rootReducer from "./reducers/";
 import refreshAuthToken from "./customMiddleware/refreshAuthTokenMw";
 
-export const history = createHistory();
-const reduxRouterMiddleware = routerMiddleware(history);
+const middlewares = [refreshAuthToken, thunk];
+
+// Log only in development
+if (process.env.NODE_ENV === "development") {
+  const { logger } = require("redux-logger");
+  middlewares.push(logger);
+}
 
 export const store = createStore(
   rootReducer,
-  composeWithDevTools(
-    applyMiddleware(reduxRouterMiddleware, refreshAuthToken, thunk, logger)
-  )
+  composeWithDevTools(applyMiddleware(...middlewares))
 );
 
 //Email / Username login
-let auth_token = localStorage.getItem("ecom_token");
+let auth_token;
+if (navigator.cookieEnabled) {
+  auth_token = localStorage.getItem("ecom_token");
+}
+
 if (auth_token) {
   store.dispatch({ type: "AUTHENTICATED" });
 }

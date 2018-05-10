@@ -8,8 +8,8 @@ import {
 
 const mapDispatchToProps = dispatch => ({
   loginAction: data => dispatch(loginAction(data)),
-  authenticateAction: (userData, dispatch) =>
-    dispatch(authenticateAction(userData, dispatch)),
+  authenticateAction: (userData, dispatch, location, push) =>
+    dispatch(authenticateAction(userData, dispatch, location, push)),
   dispatch
 });
 
